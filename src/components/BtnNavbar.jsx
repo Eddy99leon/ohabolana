@@ -1,0 +1,59 @@
+"use client"
+import React, { useState } from 'react'
+import Link from 'next/link';
+import { signOut, useSession } from 'next-auth/react';
+import Image from 'next/image';
+import { BiLogOutCircle } from "react-icons/bi";
+import { IoMdSettings } from 'react-icons/io';
+
+const BtnNavbar = () => {
+  const session = useSession();
+  const [ open, setOpen] = useState(false)
+
+  if (session.status === 'authenticated') {
+    return(
+      <div className='relative'>
+        <button 
+          className='rounded-full overflow-hidden border-4 border-gray-300'
+          onClick={() => setOpen(!open)}
+        >
+          <Image src={`https://api.dicebear.com/7.x/bottts-neutral/svg?seed=${session?.data?.user.name}`} width={34} height={34} alt='avatar' />
+        </button>
+        <div className={`
+          ${ open ? "block" : "hidden"}
+          absolute top-12 right-0 bg-gray-100 font-semibold py-4 pl-3 pr-4 border border-gray-300 shadow-lg
+        `}>
+          <Link 
+            href="/profil" 
+            className='flex items-center mb-3'
+            onClick={() => setOpen(false)}
+          >
+            <IoMdSettings className='text-2xl mr-1 text-indigo-700' />
+            <p>
+              Profil
+            </p>
+          </Link>
+          <button 
+            className='flex items-center'
+            onClick={signOut}
+          >
+            <BiLogOutCircle className='text-2xl mr-1 text-indigo-700' />
+            <p>
+              logout
+            </p>
+          </button>
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <Link href="/profil/login">
+        <button className='bg-indigo-700 text-white text-sm px-3 py-2 rounded-sm'>
+            Login
+        </button>
+    </Link>
+  )
+}
+
+export default BtnNavbar
