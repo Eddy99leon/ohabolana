@@ -18,9 +18,17 @@ const Auteurs = async ({searchParams}) => {
       <Search />
       {/* auteurs */}
       <div className='min-h-[400px] grid grid-cols-4 gap-4 pt-8'>
-        {users.map((user) => {
-          return <CardAuteur user={user} key={user.id} />
-        })}
+        { users?.length === 0 ? 
+            <div className="w-full h-full col-span-4 flex justify-center items-center">
+              <div className="text-center text-2xl text-gray-400 font-semibold">
+                Aucun Auteur correspond à cette <br />recherche.
+              </div>
+            </div>
+              :
+            users.map((user) => {
+              return <CardAuteur user={user} key={user.id} />
+            })
+        }
       </div>
     </div>
   )

@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { AiFillStar } from 'react-icons/ai';
 import { RiLoader4Fill } from "react-icons/ri";
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 const AddStars = ({idQuote}) => {
     const session = useSession()
@@ -80,20 +81,32 @@ const AddStars = ({idQuote}) => {
             />
         </div>
         {/* button */}
-        <div className='flex justify-end'>
-            <button 
-                className='w-[100px] py-2 bg-indigo-700 text-white text-sm rounded-sm'
-                onClick={handleClick}
-            >
-                {loading ? 
-                    <div className='flex justify-center'>
-                        <RiLoader4Fill className='animate-spin text-xl' />
-                    </div>
-                     : 
-                    "Publier"
-                }
-            </button>
-        </div>
+        { session.status === 'authenticated' ? 
+            <div className='flex justify-end'>
+                <button 
+                    className='w-[100px] py-2 bg-indigo-700 text-white text-sm rounded-sm'
+                    onClick={handleClick}
+                >
+                    {loading ? 
+                        <div className='flex justify-center'>
+                            <RiLoader4Fill className='animate-spin text-xl' />
+                        </div>
+                        : 
+                        "Publier"
+                    }
+                </button>
+            </div> 
+                : 
+            <div className='text-center font-medium text-gray-500'>
+                <Link 
+                    href="/profil/login"
+                    className='text-indigo-600 font-bold mr-1 hover:underline '
+                >
+                    Se connecter
+                </Link>
+                pour donner ton avis.
+            </div>
+        }
     </div>
   )
 }

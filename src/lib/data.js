@@ -1,9 +1,22 @@
 import { Post, Star, User } from "./models"
 import connect from "./utils"
 
-//get all Ohabolana
-export const getPosts = async ({search, region, category}) => {
-    console.log(search, region, category)
+
+
+//get all ohabolana
+export const getPosts = async () => {
+    try{
+        await connect();
+        const post = await Post.find();
+        return post;
+    }catch(err){
+        console.log(err);
+        throw new Error("Failed to fetch ohabolana!")
+    }
+}
+
+//get all Ohabolana filtred
+export const getPostFiltre = async ({search, region, category}) => {
     try{
         await connect();
         let posts;

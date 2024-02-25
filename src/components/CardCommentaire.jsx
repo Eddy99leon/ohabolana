@@ -14,10 +14,10 @@ const CardCommentaire = ({star}) => {
                     <Image src={`https://api.dicebear.com/7.x/bottts-neutral/svg?seed=${star?.userId}`} width={50} height={50} alt='avatar' />
                 </div>
                 <div>
-                    <h2 className='font-semibold text-xl text-indigo-950'>
+                    <h2 className='font-semibold text-lg text-indigo-950'>
                         { star?.userId }
                     </h2>
-                    <p className='text-gray-500 font-medium'>
+                    <p className='text-gray-500 font-medium text-sm'>
                         { star?.createdAt.toString().slice(4,16) }
                     </p>
                 </div>
@@ -37,7 +37,7 @@ const CardCommentaire = ({star}) => {
                 })}
             </div>
         </div>
-        <div className='text-lg text-gray-600 font-medium ml-16'>
+        <div className='text-gray-600 font-medium ml-16'>
             {star?.coms}
         </div>
     </div>

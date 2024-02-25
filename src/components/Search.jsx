@@ -7,21 +7,15 @@ import { FiSearch } from 'react-icons/fi'
 const Search = () => {
   const router = useRouter()
   const [search, setSearh] = useState("")
-  const [ query ] = useDebounce(search, 750)
+  const [ query ] = useDebounce(search, 1000)
 
   useEffect(() => {
-    if (search.length == 0) {
-        router.push(`/auteurs`);
-    }
-  }, [search, router])
-  
-  const handleSearch = () => {
-    if (search.length == 0) {
+    if (query?.length == 0) {
         router.push(`/auteurs`);
     }else{
-        router.push(`/auteurs?search=${query}`);
+      router.push(`/auteurs?search=${query}`);
     }
-  };
+  }, [ router, query ])
 
   return (
     <div className='relative w-[400px] h-[40px] mx-auto'>
@@ -35,10 +29,7 @@ const Search = () => {
             spellCheck="false"
             onChange={(e) => setSearh(e.target.value)}
         />
-        <button 
-            className='absolute right-0 h-full px-4 bg-indigo-700 text-white'
-            onClick={handleSearch}
-        >
+        <button className='absolute right-0 h-full px-4 bg-indigo-700 text-white'>
             Cherche
         </button>
     </div>
