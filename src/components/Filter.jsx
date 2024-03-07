@@ -75,53 +75,55 @@ const Filter = () => {
 
 
   return (
-    <div className='container flex items-center justify-between bg-white py-10'>
+    <div className='container lg:flex items-center justify-between bg-white py-10'>
       {/* Recherche */}
-      <div className='relative w-[400px] h-[40px]'>
+      <div className='relative mx-auto lg:mx-0 w-[300px] sm:w-[350px] lg:w-[400px] h-[37px] lg:h-[40px] mb-6 lg:mb-0'>
         <div className='absolute flex items-center left-0 h-full px-3'>
-          <FiSearch className='text-lg text-gray-800' />
+          <FiSearch className='text-base sm:text-lg text-gray-800' />
         </div>
         <input 
           type="text" 
           value={search}
-          className='absolute w-full h-full bg-transparent outline-none border border-gray-300 text-gray-500 font-medium pl-10'
+          className='absolute w-full h-full bg-transparent outline-none border border-gray-300 text-gray-500 font-medium text-sm sm:text-base pl-9 sm:pl-10'
           placeholder='cherche ohabolana...'
           spellCheck="false"
           onChange={(e) => setSearh(e.target.value)}
         />
         <button 
-          className='absolute right-0 h-full px-4 bg-indigo-700 text-white'
+          className='absolute right-0 h-full px-4 bg-indigo-700 text-white text-sm sm:text-base'
         >
           Cherche
         </button>
       </div>
-      {/* Filtre par region */}
-      <div>
-        <select 
-          name='region'
-          value={region}
-          onChange={(e) => setRegion(e.target.value)}
-          className='h-[40px] bg-transparent font-medium text-gray-700 outline-none border border-gray-300 px-2'
-        >
-          <option value={""}>Région</option>
-          {regions.map((region, index) => (
-            <option key={index} value={region}>{region}</option>
-          ))}
-        </select>
-      </div>
-      {/* Filtre par categorie */}
-      <div>
-        <select 
-          name='categorie'
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
-          className='h-[40px] bg-transparent font-medium text-gray-700 outline-none border border-gray-300 px-2'
-        >
-          <option value={""}>Catégorie</option>
-          {categorys.map((category, index) => (
-            <option key={index} value={category}>{category}</option>
-          ))}
-        </select>
+      <div className=' max-w-[500px] mx-auto lg:mx-0 flex justify-between items-center gap-2 md:gap-10 lg:gap-20'>
+        {/* Filtre par region */}
+        <div>
+          <select 
+            name='region'
+            value={region}
+            onChange={(e) => setRegion(e.target.value)}
+            className='h-[40px] bg-transparent font-medium text-gray-700 outline-none border border-gray-300 px-1 sm:px-2 text-sm sm:text-base'
+          >
+            <option value={""}>Région</option>
+            {regions.map((region, index) => (
+              <option key={index} value={region} className='text-xm sm:text-base'>{region}</option>
+            ))}
+          </select>
+        </div>
+        {/* Filtre par categorie */}
+        <div>
+          <select 
+            name='categorie'
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+            className='h-[40px] bg-transparent font-medium text-gray-700 outline-none border border-gray-300 px-1 sm:px-2 text-sm sm:text-base'
+          >
+            <option value={""}>Catégorie</option>
+            {categorys.map((category, index) => (
+              <option key={index} value={category} className='text-xm sm:text-base'>{category}</option>
+            ))}
+          </select>
+        </div>
       </div>
     </div>
   )

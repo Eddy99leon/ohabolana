@@ -10,7 +10,7 @@ const ShowStars = async ({idQuote}) => {
   let Moyenne = stars?.length > 0 ? (SommeStars / stars?.length).toFixed(2) : "0.00";
 
   return (
-    <div className='flex items-center gap-3'>
+    <div className='flex items-center gap-1 sm:gap-3'>
       <div className="flex space-x-1">
         {[...Array(5)].map((star, index) => {
             const currentRating = index + 1;
@@ -19,14 +19,14 @@ const ShowStars = async ({idQuote}) => {
                     key={index}
                     className={`
                         ${ currentRating <= Moyenne ? 'text-indigo-700' : 'text-gray-300' } 
-                        text-2xl
+                        text-lg sm:text-xl md:text-2xl
                     `}
                 />
             );
         })}
       </div>
-      <div className='text-center text-lg text-gray-800 font-semibold'>
-        { Moyenne }
+      <div className='text-center text-sm sm:text-base md:text-lg text-gray-800 font-semibold'>
+        ({ Moyenne })
       </div>
     </div>
   )

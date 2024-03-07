@@ -54,7 +54,7 @@ const AddStars = ({idQuote}) => {
                                 onClick={() => setNote(currentRating)}
                             />
                             <AiFillStar
-                                className={`${currentRating <= (hover || note) ? 'text-indigo-700' : 'text-gray-400'} cursor-pointer text-3xl`}
+                                className={`${currentRating <= (hover || note) ? 'text-indigo-700' : 'text-gray-400'} cursor-pointer text-xl sm:text-2xl md:text-3xl`}
                                 onMouseEnter={() => setHover(currentRating)}
                                 onMouseLeave={() => setHover(null)}
                             />
@@ -62,7 +62,7 @@ const AddStars = ({idQuote}) => {
                     )
                 })}
             </div>
-            <div className='text-center text-xl text-gray-800 font-semibold'>
+            <div className='text-center text-base sm:text-lg md:text-xl text-gray-800 font-semibold'>
                 ( {note}/5 )
             </div>
         </div>
@@ -76,7 +76,7 @@ const AddStars = ({idQuote}) => {
                 rows="3"
                 spellCheck="false"
                 placeholder='Commentaire..'
-                className='w-full bg-transparent outline-none border border-gray-300 text-gray-500 font-medium p-2'
+                className='w-full bg-transparent outline-none border border-gray-300 text-gray-500 text-sm sm:text-base font-medium p-2'
                 onChange={(e) => setCommentaire(e.target.value)}
             />
         </div>
@@ -97,7 +97,7 @@ const AddStars = ({idQuote}) => {
                 </button>
             </div> 
                 : 
-            <div className='text-center font-medium text-gray-500'>
+            <div className='text-center text-sm sm:text-base font-medium text-gray-500'>
                 <Link 
                     href="/profil/login"
                     className='text-indigo-600 font-bold mr-1 hover:underline '

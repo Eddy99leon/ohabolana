@@ -51,41 +51,41 @@ const Login = () => {
   
   if(session.status === "unauthenticated"){
     return (
-      <div className='max-w-5xl mx-auto px-3 pt-20 pb-20'>
+      <div className='max-w-5xl mx-auto px-3 pt-10 sm:pt-15 md:pt-20 pb-20'>
         <div className='grid grid-cols-2 items-center justify-items-center'>
 
           {/* section gauche: formulaire */}
-          <form onSubmit={handleSubmit} className='max-w-[420px] w-full'>
+          <form onSubmit={handleSubmit} className='max-w-[420px] w-full col-span-2 md:col-span-1'>
             {/* titre */}
             <div className='mb-3'>
-              <h1 className='font-semibold text-3xl text-indigo-800 mb-1'>
+              <h1 className='font-semibold text-xl sm:text-2xl md:text-3xl text-indigo-800 mb-1'>
                 Connecter à votre compte,
               </h1>
-              <h2 className='font-semibold text-gray-500'>
+              <h2 className='font-semibold text-xs sm:text-sm md:text-base text-gray-500'>
                 Choisi votre méthode de connection:
               </h2>
             </div>
             {/* methode reseau sociaux */}
-            <div className='flex items-center justify-between w-full mb-8'>
+            <div className='flex items-center justify-between gap-2 w-full mb-8'>
               <div 
                 onClick={() => signIn("google")}
-                className='flex items-center gap-2 font-semibold border border-gray-200 py-3 px-10 cursor-pointer hover:shadow-md hover:border-gray-300'
+                className='flex items-center gap-2 font-semibold text-sm sm:text-base border border-gray-200 py-3 px-10 cursor-pointer hover:shadow-md hover:border-gray-300'
               >
-                <Image src={google} width={30} height={30} alt='google connecte' />
+                <Image src={google} width={30} height={30} alt='google connecte' className='w-[20px] sm:w-[30px]' />
                 Google
               </div>
               <div 
                 onClick={() => signIn("github")}
-                className='flex items-center gap-2 font-semibold border border-gray-200 py-3 px-10 cursor-pointer hover:shadow-md hover:border-gray-300'
+                className='flex items-center gap-2 font-semibold text-sm sm:text-base  border border-gray-200 py-3 px-10 cursor-pointer hover:shadow-md hover:border-gray-300'
               >
-                <Image src={github} width={30} height={30} alt='facebook connecte' />
+                <Image src={github} width={30} height={30} alt='facebook connecte' className='w-[20px] sm:w-[30px]' />
                 Github
               </div>
             </div>
             {/* separateur */}
             <div className='relative font-semibold mb-6'>
               <hr className='h-1 w-full bg-gray-300' />
-              <div className='absolute text-sm text-gray-500 -mt-3 bg-gray-50 pr-2'>
+              <div className='absolute text-xs md:text-sm text-gray-500 -mt-3 bg-gray-50 pr-2'>
                 Continu avec Email
               </div>
             </div>
@@ -98,7 +98,7 @@ const Login = () => {
                 <input 
                   type="email" 
                   spellCheck="false"
-                  className='absolute w-full h-full bg-transparent outline-none border border-gray-300 text-gray-500 font-medium pl-10'
+                  className='absolute w-full h-full bg-transparent outline-none border border-gray-300 text-gray-500 font-medium text-sm md:text-base pl-10'
                   placeholder='Email'
                 />
               </div>
@@ -108,7 +108,7 @@ const Login = () => {
                 </div>
                 <input 
                   type="password"
-                  className='absolute w-full h-full bg-transparent outline-none border border-gray-300 text-gray-500 font-medium pl-10'
+                  className='absolute w-full h-full bg-transparent outline-none border border-gray-300 text-gray-500 font-medium text-sm md:text-base pl-10'
                   placeholder='Mot de passe'
                 />
               </div>
@@ -126,7 +126,7 @@ const Login = () => {
               </button>
             </div>
             {/* pas encore de compte */}
-            <div className='text-center text-sm'>
+            <div className='text-center text-xs sm:text-sm'>
               <p className='font-semibold text-gray-500'>
                 Vous n'avez pas un compte?
                 <Link 
@@ -140,7 +140,7 @@ const Login = () => {
           </form>
 
           {/* section droite: image */}
-          <div>
+          <div className='hidden md:block'>
             <Image src={login} width={400} height={400} priority={true} alt='photo de login' />
           </div>
 

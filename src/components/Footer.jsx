@@ -6,9 +6,9 @@ import Link from 'next/link';
 const Footer = () => {
   return (
     <div className='bg-gray-200'>
-      <div className='container flex justify-between py-14'>
+      <div className='container grid grid-cols-3 md:grid-cols-5 gap-4 py-14'>
         {/* logo */}
-        <div>
+        <div className='col-span-3 md:col-span-2 mb-4 md:mb-0'>
           <div className='flex items-center mb-2'>
             <FcLightAtTheEndOfTunnel className='text-3xl mr-1' />
             <h1 className='text-xl font-semibold'>
@@ -22,7 +22,7 @@ const Footer = () => {
           </p>
         </div>
         {/* lien */}
-        <div>
+        <div className='text-sm md:text-base'>
           <h2 className='font-semibold mb-2'>
             Lien rapide
           </h2>
@@ -36,7 +36,7 @@ const Footer = () => {
           </ul>
         </div>
         {/* compte */}
-        <div>
+        <div className='text-sm md:text-base'>
           <h1 className='font-semibold  mb-2'>
             Compte
           </h1>
@@ -50,7 +50,7 @@ const Footer = () => {
           </ul>
         </div>
         {/* securite */}
-        <div>
+        <div className='text-sm md:text-base'>
           <h1 className='font-semibold  mb-2'>
             Securite
           </h1>
@@ -66,22 +66,22 @@ const Footer = () => {
       </div>
 
       <div className='border-t border-gray-300'>
-        <div className='container flex justify-between items-center py-6'>
-          <h2 className='font-medium'>
-            <span className='text-lg mr-1'>©</span>
+        <div className='container text-center sm:flex justify-between items-center py-6'>
+          <h2 className='font-medium text-sm md:text-base'>
+            <span className='text-base sm:text-lg mr-1'>©</span>
             2024, 
             <Link href="/dashboard" className='font-semibold mx-1'>
               Eddy Andriamisaina.
             </Link>
             Tous droits réservés.
           </h2>
-          <div className='flex items-center space-x-6'>
+          <div className='flex items-center justify-center space-x-6 text-sm md:text-base mt-2 sm:mt-0'>
             <a 
               href="https://web.facebook.com/profile.php?id=100094137014767" 
               target='_blank'
               className='flex items-center cursor-pointer'
             >
-              <CiFacebook className='text-2xl mr-1' />
+              <CiFacebook className='text-xl sm:text-2xl mr-1' />
               <span className='font-semibold'>
                 Facebook
               </span>
@@ -91,7 +91,7 @@ const Footer = () => {
               target='_blank'
               className='flex items-center cursor-pointer'
             >
-              <CiLinkedin className='text-2xl mr-1' />
+              <CiLinkedin className='text-xl sm:text-2xl mr-1' />
               <span className='font-semibold'>
                 Linkedin
               </span>

@@ -14,10 +14,10 @@ const CardOhabolana = async ({post}) => {
         <Link 
             href={`/${post?._id}`}
             style={{ backgroundColor: categoryColor }}
-            className={`font-semibold text-lg px-4 pt-8 pb-12 w-full min-h-[200px] flex items-center rounded-sm`}
+            className={`font-semibold text-base sm:text-lg px-4 pt-8 pb-12 w-full min-h-[200px] flex items-center rounded-sm`}
         >
             <div className='w-full'>
-                <p className='text-3xl font-semibold text-indigo-700'>
+                <p className='text-2xl font-semibold text-indigo-700'>
                     "
                 </p>
                 <div className='w-full text-center'>
@@ -34,17 +34,17 @@ const CardOhabolana = async ({post}) => {
                     <Image src={`https://api.dicebear.com/7.x/bottts-neutral/svg?seed=${post?.userId}`} width={40} height={40} alt='avatar' />
                 </div>
                 <div>
-                    <h2 className='text-sm font-semibold text-indigo-900'>
+                    <h2 className='text-xs sm:text-sm font-semibold text-indigo-900'>
                         {post?.userId}
                     </h2>
-                    <p className='text-sm font-semibold text-gray-400'>
+                    <p className='text-xs sm:text-sm font-semibold text-gray-400'>
                         {post?.createdAt.toString().slice(4,16)}
                     </p>
                 </div>
             </Link>
             <Link 
                 href={`/${post?._id}`}
-                className='bg-indigo-200 text-indigo-700 text-sm font-semibold py-1 px-2'
+                className='bg-indigo-200 text-indigo-700 text-xs sm:text-sm font-semibold py-1 px-2'
             >
                 {post?.category}
             </Link>

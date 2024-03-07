@@ -8,12 +8,12 @@ const AddQuote = () => {
   const userId = session?.data?.user.name
 
   return (
-    <div className='max-w-2xl mx-auto px-3 pt-10 pb-20'>
+    <div className='max-w-2xl mx-auto px-3 pt-6 sm:pt-10 pb-20'>
       <div className='mb-6'>
-        <h1 className='font-semibold text-indigo-700 text-2xl'>
+        <h1 className='font-semibold text-indigo-700 text-lg sm:text-xl md:text-2xl'>
           Ajouter un nouveau Ohabolana:
         </h1>
-        <p className='text-sm text-gray-500 font-medium'>
+        <p className='text-xs sm:text-sm text-gray-500 font-medium'>
           Lorem ipsum dolor sit amet.
           Lorem ipsum dolor sit amet.
           Lorem ipsum dolor sit amet.

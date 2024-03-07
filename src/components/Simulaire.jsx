@@ -12,7 +12,7 @@ const Simulaire = async ({post}) => {
             <div className='space-y-4'>
                 { filteredQuotes?.length == 0 ?
                     <div className='flex items-center justify-center min-h-[200px] border border-gray-300'>
-                        <p className='text-gray-400 font-medium text-center'>
+                        <p className='text-gray-400 text-sm md:text-base font-medium text-center'>
                             Aucun Ohabolana
                             <br />simulaire.
                         </p>
