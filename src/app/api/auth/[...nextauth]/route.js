@@ -52,7 +52,7 @@ const handler = NextAuth({
 
           if (!user) {
             const newUser = new User({
-              name: profile.login,
+              name: profile.name,
               email: profile.email,
             });
 

@@ -21,7 +21,7 @@ const BtnNavbar = () => {
         </button>
         <div className={`
           ${ open ? "block" : "hidden"}
-          absolute top-8 sm:top-10 right-0 bg-gray-100 font-semibold py-2 sm:py-4 sm:pl-3 sm:pr-4 border border-gray-300 shadow-lg z-50
+          absolute top-10 sm:top-10 right-0 bg-gray-100 font-semibold py-2 sm:py-4 pl-3 pr-4 border border-gray-300 shadow-lg z-50
         `}>
           <Link 
             href="/profil" 
