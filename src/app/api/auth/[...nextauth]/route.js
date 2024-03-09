@@ -16,18 +16,6 @@ const handler = NextAuth({
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
-    // callback({
-    //   async signIn(user, account, profil) {
-    //     if(account.provider === "github"){
-    //       connect();
-    //       try{
-
-    //       }catch(err){
-
-    //       }
-    //     }
-    //   }
-    // }),
     CredentialsProvider({
       id:"credentials",
       name: "Credentials",
@@ -55,6 +43,47 @@ const handler = NextAuth({
       }
     })
   ],
+  callbacks: {
+    async signIn({ user, account, profile }) {
+      if (account.provider === "github") {
+        await connect();
+        try {
+          const user = await User.findOne({ email: profile.email });
+
+          if (!user) {
+            const newUser = new User({
+              username: profile.login,
+              email: profile.email,
+            });
+
+            await newUser.save();
+          }
+        } catch (err) {
+          console.log(err);
+          return false;
+        }
+      }
+      if (account.provider === "google") {
+        await connect();
+        try {
+          const user = await User.findOne({ email: profile.email });
+
+          if (!user) {
+            const newUser = new User({
+              name: profile.name,
+              email: profile.email,
+            });
+
+            await newUser.save();
+          }
+        } catch (err) {
+          console.log(err);
+          return false;
+        }
+      }
+      return true;
+    },
+  },
   pages: {
     error:"/profil/login"
   }

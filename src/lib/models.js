@@ -18,11 +18,12 @@ const userSchema = new Schema(
         },
         password:{
             type: String,
-            require: true,
+            require: false,
             min:4
         },
-        picture:{
-            type: String,
+        isAdmin: {
+            type: Boolean,
+            default: false,
         },
     },
     {timestamps: true }
