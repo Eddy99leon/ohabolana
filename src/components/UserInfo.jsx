@@ -17,8 +17,8 @@ const UserInfo = ({quotes}) => {
   return (
     <div className='flex items-center justify-between'>
         <div className='flex items-center space-x-4'>
-            <div className=' rounded-full mr-0 md:mr-1 overflow-hidden border-4 border-gray-300 w-[50px] md:w-[130px] h-[50px] md:h-[130px]'>
-                <Image src={`https://api.dicebear.com/7.x/bottts-neutral/svg?seed=${name}`} width={130} height={130} priority={true} alt='avatar' />
+            <div className=' rounded-full mr-0 md:mr-1 overflow-hidden w-[50px] md:w-[130px] h-[50px] md:h-[130px]'>
+                <Image src={`https://api.dicebear.com/7.x/bottts/svg?seed=${name}`} width={130} height={130} priority={true} alt='avatar' />
             </div>
             <div>
                 <h1 className='font-semibold text-base sm:text-xl md:text-2xl text-indigo-800'>

@@ -14,10 +14,10 @@ const BtnNavbar = () => {
     return(
       <div className='relative'>
         <button 
-          className='rounded-full overflow-hidden border-4 border-gray-300 w-[30px] md:w-[34px] h-[30px] md:h-[34px]'
+          className='rounded-full overflow-hidden w-[30px] md:w-[34px] h-[30px] md:h-[34px]'
           onClick={() => setOpen(!open)}
         >
-          <Image src={`https://api.dicebear.com/7.x/bottts-neutral/svg?seed=${session?.data?.user.name}`} width={34} height={34} alt='avatar' />
+          <Image src={`https://api.dicebear.com/7.x/bottts/svg?seed=${session?.data?.user.name}`} width={34} height={34} alt='avatar' />
         </button>
         <div className={`
           ${ open ? "block" : "hidden"}

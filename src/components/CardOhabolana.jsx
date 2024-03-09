@@ -30,8 +30,8 @@ const CardOhabolana = async ({post}) => {
                 href="/auteurs"
                 className='flex items-center'
             >
-                <div className=' rounded-full mr-1 overflow-hidden border-4 border-gray-300'>
-                    <Image src={`https://api.dicebear.com/7.x/bottts-neutral/svg?seed=${post?.userId}`} width={40} height={40} alt='avatar' />
+                <div className=' rounded-full mr-1 overflow-hidden'>
+                    <Image src={`https://api.dicebear.com/7.x/bottts/svg?seed=${post?.userId}`} width={40} height={40} alt='avatar' />
                 </div>
                 <div>
                     <h2 className='text-xs sm:text-sm font-semibold text-indigo-900'>

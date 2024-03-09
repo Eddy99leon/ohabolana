@@ -10,8 +10,8 @@ const CardCommentaire = ({star}) => {
     <div className='py-4 px-2'>
         <div className='flex justify-between items-center mb-0 sm:mb-1'>
             <div className='flex items-center'>
-                <div className='rounded-full mr-2 overflow-hidden border-4 border-gray-300'>
-                    <Image src={`https://api.dicebear.com/7.x/bottts-neutral/svg?seed=${star?.userId}`} width={50} height={50} alt='avatar' />
+                <div className='rounded-full mr-2 overflow-hidden'>
+                    <Image src={`https://api.dicebear.com/7.x/bottts/svg?seed=${star?.userId}`} width={50} height={50} alt='avatar' />
                 </div>
                 <div>
                     <h2 className='font-semibold text-sm sm:text-base md:text-lg text-indigo-950'>

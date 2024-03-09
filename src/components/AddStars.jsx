@@ -39,7 +39,7 @@ const AddStars = ({idQuote}) => {
     }
 
   return (
-    <div className='border border-gray-300 hover:shadow-lg p-2'>
+    <div className='bg-white border border-gray-300 hover:shadow-lg p-2'>
         {/* Etoile */}
         <div className='flex items-center gap-3 mb-3'>
             <div className='flex justify-center space-x-2'>

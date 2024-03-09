@@ -19,8 +19,8 @@ const Auteur = async ({params}) => {
   return (
     <div className='container pt-6 pb-20'>
       <div className='flex items-center space-x-4 mb-4'>
-          <div className=' rounded-full mr-1 overflow-hidden border-4 border-gray-300 w-[70px] md:w-[130px] h-[70px] md:h-[130px]'>
-              <Image src={`https://api.dicebear.com/7.x/bottts-neutral/svg?seed=${user?.name}`} width={130} height={130} alt='avatar' />
+          <div className=' rounded-full mr-1 overflow-hidden w-[70px] md:w-[130px] h-[70px] md:h-[130px]'>
+              <Image src={`https://api.dicebear.com/7.x/bottts/svg?seed=${user?.name}`} width={130} height={130} alt='avatar' />
           </div>
           <div>
               <h1 className='font-semibold text-2xl sm:text-3xl md:text-4xl text-indigo-800'>
