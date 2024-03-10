@@ -23,40 +23,40 @@ export const getPostFiltre = async ({search, region, category}) => {
 
         //cas: tous n'existe
         if(!search && !region && !category){
-            posts = await Post.find();
+            posts = await Post.find().sort({ createdAt: -1 });
         }
 
         //cas: search existe
         if(search && !region && !category){
             const regex = new RegExp(search, 'i');
-            posts = await Post.find({ "quote" : regex });
+            posts = await Post.find({ "quote" : regex }).sort({ createdAt: -1 });
         }
         if(search && region && !category){
             const regex = new RegExp(search, 'i');
-            posts = await Post.find({ "quote" : regex, "region" : region });
+            posts = await Post.find({ "quote" : regex, "region" : region }).sort({ createdAt: -1 });
         }
         if(search && !region && category){
             const regex = new RegExp(search, 'i');
-            posts = await Post.find({ "quote" : regex, "category" : category });
+            posts = await Post.find({ "quote" : regex, "category" : category }).sort({ createdAt: -1 });
         }
 
         //cas: region existe
         if(!search && region && !category){
-            posts = await Post.find({ "region" : region });
+            posts = await Post.find({ "region" : region }).sort({ createdAt: -1 });
         }
         if(!search && region && category){
-            posts = await Post.find({ "region" : region, "category" : category });
+            posts = await Post.find({ "region" : region, "category" : category }).sort({ createdAt: -1 });
         }
 
         //cas: category existe
         if(!search && !region && category){
-            posts = await Post.find({ "category" : category });
+            posts = await Post.find({ "category" : category }).sort({ createdAt: -1 });
         }
 
         //cas: tous existe
         if(search && region && category){
             const regex = new RegExp(search, 'i');
-            posts = await Post.find({ "quote" : regex, "region" : region, "category" : category });
+            posts = await Post.find({ "quote" : regex, "region" : region, "category" : category }).sort({ createdAt: -1 });
         }
         return posts;
 
@@ -84,7 +84,7 @@ export const getQuotesByUserId = async (userId) => {
         await connect();
         let quotes;
         if(userId){
-            quotes = await Post.find({ "userId" : userId });
+            quotes = await Post.find({ "userId" : userId }).sort({ createdAt: -1 });
         }
         return quotes;
     }catch(err){
@@ -99,10 +99,10 @@ export const getUsers = async (search) => {
         await connect();
         let users;
         if(!search){
-            users = await User.find();
+            users = await User.find().sort({ createdAt: -1 });
         }else{
             const regex = new RegExp(search, 'i');
-            users = await User.find({ name : regex });
+            users = await User.find({ name : regex }).sort({ createdAt: -1 });
         }
         return users
     }catch(err){
@@ -139,7 +139,7 @@ export const getTest = async (category) => {
 export const getQuotesByCategory = async (category) => {
     try{
         await connect();
-        const quotes = await Post.find({"category": category}).limit(4)
+        const quotes = await Post.find({"category": category}).sort({ createdAt: -1 }).limit(4)
         return quotes;
     }catch(err){
         console.log(err)

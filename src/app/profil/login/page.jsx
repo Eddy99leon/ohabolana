@@ -9,11 +9,8 @@ import { CgLock } from "react-icons/cg";
 import Link from 'next/link'
 import { signIn, useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
+import { RiLoader4Fill } from 'react-icons/ri'
 
-// export const metadata = {
-//   title: 'Se connecter',
-//   description: 'Se connecter à Ohabolana Malagasy',
-// }
 
 const Login = () => {
 
@@ -100,6 +97,7 @@ const Login = () => {
                   spellCheck="false"
                   className='absolute w-full h-full bg-transparent outline-none border border-gray-300 text-gray-500 font-medium text-sm md:text-base pl-10'
                   placeholder='Email'
+                  required
                 />
               </div>
               <div className='relative w-full h-[50px]'>
@@ -110,6 +108,7 @@ const Login = () => {
                   type="password"
                   className='absolute w-full h-full bg-transparent outline-none border border-gray-300 text-gray-500 font-medium text-sm md:text-base pl-10'
                   placeholder='Mot de passe'
+                  required
                 />
               </div>
               <div className='text-end'>
@@ -122,7 +121,13 @@ const Login = () => {
             {/* button */}
             <div className='mb-6'>
               <button className='w-full bg-indigo-700 text-sm text-white font-medium py-2'>
-                Se connecter
+                {loading ? 
+                  <div className='flex justify-center'>
+                    <RiLoader4Fill className='animate-spin text-xl sm:text-2xl' />
+                  </div>
+                    : 
+                  "Se connecter"
+                }
               </button>
             </div>
             {/* pas encore de compte */}

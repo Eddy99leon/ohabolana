@@ -2,6 +2,7 @@
 export const categoriesToColors = {
     Fihavanana: '#c7d2fe',
     Firaisan_kina: '#bbf7d0',
+    Fitiavana: '#e5e7eb',
     Fahafatesana: '#bfdbfe',
     Fisaorana: '#e2e8f0',
     Hafaliana: '#e7e5e4',

@@ -13,10 +13,18 @@ const AddStars = ({idQuote}) => {
     const [note, setNote] = useState(0);
     const [commentaire, setCommentaire] = useState("");
     const [hover, setHover] = useState(null);
+    const [error, setError] = useState("")
 
     //ajouter un star
     const handleClick = async (e) => {
         e.preventDefault();
+        if(note == 0){
+            setError("mets d'étoile!");
+            return;
+        }else if(commentaire == ""){
+            setError("Le commentaire est vide!");
+            return;
+        }
         setLoading(true)
         try{
             await fetch("/api/stars", {
@@ -29,11 +37,12 @@ const AddStars = ({idQuote}) => {
                 })
             })
         }catch(err){
-            console.log(err)
+            console.log(err);
         } finally {
-            setLoading(false)
-            setNote(0)
-            setCommentaire("")
+            setLoading(false);
+            setNote(0);
+            setCommentaire("");
+            setError("");
             router.refresh();
         }
     }
@@ -78,7 +87,11 @@ const AddStars = ({idQuote}) => {
                 placeholder='Commentaire..'
                 className='w-full bg-transparent outline-none border border-gray-300 text-gray-500 text-sm sm:text-base font-medium p-2'
                 onChange={(e) => setCommentaire(e.target.value)}
+                required
             />
+        </div>
+        <div className='text-red-500 text-sm text-center font-medium'>
+            {error && error}
         </div>
         {/* button */}
         { session.status === 'authenticated' ? 

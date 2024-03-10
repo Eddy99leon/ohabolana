@@ -33,6 +33,7 @@ const AddQuoteForm = ({userId}) => {
       e.target.reset()
       setLoading(false)
       router?.push('/profil');
+      router?.refresh('/');
     }
   }
 
@@ -54,6 +55,7 @@ const AddQuoteForm = ({userId}) => {
             rows="3"
             spellCheck="false"
             className='w-full h-full bg-transparent outline-none border border-gray-300 text-gray-500 font-medium text-sm sm:text-base p-2'
+            required
           />
         </div>
 
@@ -63,6 +65,7 @@ const AddQuoteForm = ({userId}) => {
             <select 
               name='region'
               className='h-[40px] sm:h-[50px] bg-transparent font-medium text-sm sm:text-base text-gray-700 outline-none border border-gray-300 px-1 sm:px-2'
+              required
             >
               <option defaultValue>Région</option>
               {regions.map((region, index) => (
@@ -74,6 +77,7 @@ const AddQuoteForm = ({userId}) => {
             <select 
               name='category'
               className='h-[40px] sm:h-[50px] bg-transparent font-medium text-sm sm:text-base text-gray-700 outline-none border border-gray-300 px-1 sm:px-2'
+              required
             >
               <option defaultValue>Catégorie</option>
               {categorys.map((category, index) => (
@@ -98,6 +102,7 @@ const AddQuoteForm = ({userId}) => {
             rows="5"
             spellCheck="false"
             className='w-full h-full bg-transparent outline-none border border-gray-300 text-gray-500 font-medium p-2'
+            required
           />
         </div>
 

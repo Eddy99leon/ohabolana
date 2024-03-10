@@ -4,15 +4,11 @@ import login from "../../../../public/login2.jpg"
 import React, { useState } from 'react'
 import { HiOutlineMail } from "react-icons/hi";
 import { CgLock, CgProfile } from "react-icons/cg";
-import { AiOutlineCloudUpload } from "react-icons/ai";
 import Link from 'next/link'
 import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
+import { RiLoader4Fill } from 'react-icons/ri'
 
-// export const metadata = {
-//   title: "S'inscrire",
-//   description: "S'inscrire à Ohabolana Malagasy",
-// }
 
 const Registre = () => {
 
@@ -85,6 +81,9 @@ const Registre = () => {
                   spellCheck="false"
                   className='absolute w-full h-full bg-transparent outline-none border border-gray-300 text-gray-500 font-medium text-sm md:text-base pl-10'
                   placeholder='Pseudo'
+                  pattern="^.{4,}$"
+                  title="Le pseudo doit contenir au moins 4 caractères."
+                  required
                 />
               </div>
               {/* email */}
@@ -97,6 +96,8 @@ const Registre = () => {
                   spellCheck="false"
                   className='absolute w-full h-full bg-transparent outline-none border border-gray-300 text-gray-500 font-medium text-sm md:text-base pl-10'
                   placeholder='Email'
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                  required
                 />
               </div>
               {/* mot de passe */}
@@ -108,32 +109,23 @@ const Registre = () => {
                   type="password"
                   className='absolute w-full h-full bg-transparent outline-none border border-gray-300 text-gray-500 font-medium text-sm md:text-base pl-10'
                   placeholder='Mot de passe'
+                  pattern="^.{3,}$"
+                  title="Le pseudo doit contenir au moins 3 caractères."
+                  required
                 />
-              </div>
-              {/* photo de profil */}
-              <div className='bg-transparent border border-gray-300 text-gray-500 font-medium text-sm md:text-base py-4'>
-                <label 
-                  htmlFor="uploadFile"
-                  className="bg-white text-gray-400 cursor-pointer mx-auto "
-                >
-                  <div className='flex items-center justify-center'>
-                    <AiOutlineCloudUpload className='text-gray-400 text-4xl mr-2' />
-                    <p>
-                      Photo de profil
-                    </p>
-                  </div>
-                  <p className='text-center'>
-                    ( facultatif )
-                  </p>
-                  <input type="file" id='uploadFile' className="hidden" />
-                </label>
               </div>
             </div>
             
             {/* button */}
             <div className='mb-6'>
               <button className='w-full bg-indigo-700 text-sm text-white font-medium py-2'>
-                S'inscrire
+                {loading ? 
+                  <div className='flex justify-center'>
+                    <RiLoader4Fill className='animate-spin text-xl sm:text-2xl' />
+                  </div>
+                    : 
+                  "Registre"
+                }
               </button>
             </div>
             {/* pas encore de compte */}
