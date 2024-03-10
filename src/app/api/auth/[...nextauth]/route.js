@@ -52,7 +52,7 @@ const handler = NextAuth({
 
           if (!user) {
             const newUser = new User({
-              name: profile.name,
+              name: profile.login,
               email: profile.email,
             });
 
@@ -62,8 +62,7 @@ const handler = NextAuth({
           console.log(err);
           return false;
         }
-      }
-      if (account.provider === "google") {
+      } else if (account.provider === "google") {
         await connect();
         try {
           const user = await User.findOne({ email: profile.email });
