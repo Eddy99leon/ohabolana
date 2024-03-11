@@ -26,6 +26,7 @@ export const categoriesToColors = {
     Hanatra: '#d9f99d',
     Fianarana: '#fef08a',
     Fahendrena: '#fed7aa',
+    Autres: '#e2e8f0',
 };
 
 export const regions = [
