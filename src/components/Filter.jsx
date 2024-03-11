@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
 import { FiSearch } from "react-icons/fi";
 
-const Filter = () => {
+const Filter = ({page}) => {
 
   const router = useRouter()
   const [search, setSearh] = useState("")
@@ -50,9 +50,11 @@ const Filter = () => {
 
 
   useEffect(() => {
-    
     let queryParams = [];
   
+    if (page > 1) {
+      queryParams.push(`page=${page}`);
+    }
     if (search.length > 0) {
       queryParams.push(`search=${search}`);
     }

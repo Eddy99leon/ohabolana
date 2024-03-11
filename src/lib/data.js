@@ -16,49 +16,107 @@ export const getPosts = async () => {
 }
 
 //get all Ohabolana filtred
-export const getPostFiltre = async ({search, region, category}) => {
+export const getPostFiltre = async ({search, region, category, page}) => {
+    const ITEM_PER_PAGE = 9
     try{
         await connect();
         let posts;
+        let count;
 
         //cas: tous n'existe
         if(!search && !region && !category){
-            posts = await Post.find().sort({ createdAt: -1 });
+            posts = await Post
+                .find()
+                .sort({ createdAt: -1 })
+                .limit(ITEM_PER_PAGE)
+                .skip(ITEM_PER_PAGE * (page-1));
+            count = await Post
+                .find()
+                .count()
         }
 
         //cas: search existe
         if(search && !region && !category){
             const regex = new RegExp(search, 'i');
-            posts = await Post.find({ "quote" : regex }).sort({ createdAt: -1 });
+            posts = await Post
+                .find({ "quote" : regex })
+                .sort({ createdAt: -1 })
+                .limit(ITEM_PER_PAGE)
+                .skip(ITEM_PER_PAGE * (page-1));
+            count = await Post
+                .find({ "quote" : regex })
+                .count()
         }
         if(search && region && !category){
             const regex = new RegExp(search, 'i');
-            posts = await Post.find({ "quote" : regex, "region" : region }).sort({ createdAt: -1 });
+            posts = await Post
+                .find({ "quote" : regex, "region" : region })
+                .sort({ createdAt: -1 })
+                .limit(ITEM_PER_PAGE)
+                .skip(ITEM_PER_PAGE * (page-1));
+            count = await Post
+                .find({ "quote" : regex, "region" : region })
+                .count()
         }
         if(search && !region && category){
             const regex = new RegExp(search, 'i');
-            posts = await Post.find({ "quote" : regex, "category" : category }).sort({ createdAt: -1 });
+            posts = await Post
+                .find({ "quote" : regex, "category" : category })
+                .sort({ createdAt: -1 })
+                .limit(ITEM_PER_PAGE)
+                .skip(ITEM_PER_PAGE * (page-1));
+            count = await Post
+                .find({ "quote" : regex, "category" : category })
+                .count()
         }
 
         //cas: region existe
         if(!search && region && !category){
-            posts = await Post.find({ "region" : region }).sort({ createdAt: -1 });
+            posts = await Post
+                .find({ "region" : region })
+                .sort({ createdAt: -1 })
+                .limit(ITEM_PER_PAGE)
+                .skip(ITEM_PER_PAGE * (page-1));
+            count = await Post
+                .find({ "region" : region })
+                .count()
         }
         if(!search && region && category){
-            posts = await Post.find({ "region" : region, "category" : category }).sort({ createdAt: -1 });
+            posts = await Post
+                .find({ "region" : region, "category" : category })
+                .sort({ createdAt: -1 })
+                .limit(ITEM_PER_PAGE)
+                .skip(ITEM_PER_PAGE * (page-1));
+            count = await Post
+                .find({ "region" : region, "category" : category })
+                .count()
         }
 
         //cas: category existe
         if(!search && !region && category){
-            posts = await Post.find({ "category" : category }).sort({ createdAt: -1 });
+            posts = await Post
+                .find({ "category" : category })
+                .sort({ createdAt: -1 })
+                .limit(ITEM_PER_PAGE)
+                .skip(ITEM_PER_PAGE * (page-1));
+            count = await Post
+                .find({ "category" : category })
+                .count()
         }
 
         //cas: tous existe
         if(search && region && category){
             const regex = new RegExp(search, 'i');
-            posts = await Post.find({ "quote" : regex, "region" : region, "category" : category }).sort({ createdAt: -1 });
+            posts = await Post
+                .find({ "quote" : regex, "region" : region, "category" : category })
+                .sort({ createdAt: -1 })
+                .limit(ITEM_PER_PAGE)
+                .skip(ITEM_PER_PAGE * (page-1));
+            count = await Post
+                .find({ "quote" : regex, "region" : region, "category" : category })
+                .count()
         }
-        return posts;
+        return {posts, count};
 
     }catch(err){
         console.log(err)
