@@ -16,7 +16,7 @@ const CardAuteur = async ({user}) => {
             <Image src={`https://api.dicebear.com/7.x/bottts/svg?seed=${user?.name}`} width={70} height={70} alt='avatar' />
         </div>
         <div>
-            <h1 className='font-semibold text-indigo-800 text-xs sm:text-sm'>
+            <h1 className='font-semibold text-indigo-800 text-xs sm:text-sm overflow-hidden text-ellipsis line-clamp-2' title={user?.name}>
                 {user?.name}
             </h1>
             <p className='text-xs sm:text-sm text-gray-400 font-semibold'>
