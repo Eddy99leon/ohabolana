@@ -13,7 +13,7 @@ const Auteurs = async ({searchParams}) => {
   const users = await getUsers(search)
 
   return (
-    <div className='container pt-6 pb-20'>
+    <div className='container min-h-[600px] pt-6 pb-20'>
       {/* Recherche */}
       <Search />
       {/* auteurs */}

@@ -10,13 +10,13 @@ const CardAuteur = async ({user}) => {
   return (
     <Link 
         href={`/auteurs/${user?.id}`}
-        className='flex items-center bg-white space-x-4 h-[60px] px-1 sm:px-4 border border-gray-300 hover:shadow-lg hover:border-gray-400'
+        className='flex items-center bg-white space-x-4 min-h-[70px] px-1 sm:px-4 border border-gray-300 hover:shadow-lg hover:border-gray-400'
     >
         <div className=' rounded-full mr-0 sm:mr-1 overflow-hidden w-10 sm:w-50 md:w-70 h-10 sm:h-50 md:h-70'>
             <Image src={`https://api.dicebear.com/7.x/bottts/svg?seed=${user?.name}`} width={70} height={70} alt='avatar' />
         </div>
         <div>
-            <h1 className='font-semibold text-indigo-800 text-sm sm:text-base'>
+            <h1 className='font-semibold text-indigo-800 text-xs sm:text-sm'>
                 {user?.name}
             </h1>
             <p className='text-xs sm:text-sm text-gray-400 font-semibold'>
