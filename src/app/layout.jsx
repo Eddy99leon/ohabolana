@@ -16,9 +16,11 @@ export default function RootLayout({ children }) {
     <html lang="fr">
       <body className={montserrat.className}>
         <AutProvider>
-          <div className='bg-gray-50'>
+          <div className='bg-gray-50 flex h-screen flex-col'>
             <Navbar />
-              {children}
+              <main className="flex-1">
+                {children}
+              </main>
             <Footer />
           </div>
         </AutProvider>
